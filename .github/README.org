@@ -1,0 +1,24 @@
+#+title:    Dotfiles
+#+subtitle: My Arch linux configuration
+#+author:   Jacob Schroeder
+#+email:    j.alexander.sch@gmail.com
+
+* Dotfiles
+| Type              | Program                               |
+|-------------------+---------------------------------------|
+| Distro            | Arch                                  |
+| Window System     | X11                                   |
+| Window Manager    | XMonad                                |
+| Audio             | pipewire                              |
+| Compositor        | picom-pijulius-git                    |
+| Bar               | eww                                   |
+| Terminal Emulator | kitty                                 |
+| Launcher          | Rofi                                  |
+| Browser           | Firefox                               |
+| Editor            | Doom Emacs                            |
+| Editor            | Neovim                                |
+| Editor            | Helix                                 |
+| File Manager      | Thunar                                |
+| Wallpaper         | feh                                   |
+| GTK Theme         | Catppuccin Mocha Standard Maroon Dark |
+| Cursor Theme      | Catppuccin Mocha Dark Cursors         |
