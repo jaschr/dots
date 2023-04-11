@@ -1,0 +1,40 @@
+/*
+dark fg #e6e1cf
+border light #acb6bf
+border red #f07178
+dark bg #0f1419
+*/
+
+$bg: #0f1419;
+$fg: #e6e1cf;
+$border_red: #f07178;
+$border_light: #acb6bf;
+$radius: 6px;
+$padding: 3px;
+
+* {
+	all: unset;
+}
+
+.container {
+  margin-top: 8px;
+	background-color: $bg;
+	color: $fg;
+  font-size: 18px;
+  font-family: "Fira Code Regular Nerd Font";
+  font-weight: 600;
+  //border-radius: $radius;
+  border: 2px solid $border_red;
+}
+
+.clock {
+  padding: $padding;
+}
+
+.time {
+  padding: $padding;
+}
+
+.spacer {
+  padding: $padding;
+}

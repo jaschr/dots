@@ -1,0 +1,29 @@
+(defpoll time :interval "20s"
+	`date +"%I:%M %p"`
+)
+
+(defpoll battery :interval "30s"
+  `/home/$USER/.config/eww/scripts/battery.py`
+)
+
+
+(defwindow bar
+  :monitor 0
+  :windowtype "dock"
+  :reserve (struts :distance "44px" :side "top")
+  :wm-ignore true
+  :stacking "bg"
+  :geometry (geometry
+              :width "1348px"
+              :anchor "top center"
+            )
+  (box :class "container" 
+    (box :class "clock" :halign "center"
+      (label :class "time" :text "${time}")
+    )
+
+    (box :class "spacer")
+
+    (box :class "battery" :halign "center" "${battery}")
+  )
+)

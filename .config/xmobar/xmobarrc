@@ -1,0 +1,21 @@
+Config
+    { font = "xft:FiraCode Nerd Font:style=Regular:size=12"
+    , bgColor = "#181814"
+    , fgColor = "#c8b6b8"
+    , position = TopH 30
+    , lowerOnStart = True
+    , hideOnStart  = False
+    , allDesktops  = True
+    , persistent   = True
+    , commands =
+        -- Time and Date
+        [ Run Date "%b %d, %H:%M" "date" 10
+        -- Prints out workspace, layout, etc
+        , Run UnsafeStdinReader
+        ]
+     -- DISPLAY
+    , alignSep = "}{"
+    , sepChar = "%"
+    , template = " %UnsafeStdinReader% }{ %date%"
+    }
+
