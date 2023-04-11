@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ $((eww windows) 2>&1 | grep "\*bar\b") ]]; then
+  eww close bar
+else
+  eww open bar
+fi
+
