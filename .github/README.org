@@ -11,7 +11,7 @@
 | Window Manager    | XMonad                                |
 | Audio             | pipewire                              |
 | Compositor        | picom-pijulius-git                    |
-| Bar               | eww                                   |
+| Bar               | polybar                               |
 | Terminal Emulator | kitty                                 |
 | Launcher          | Rofi                                  |
 | Browser           | Firefox                               |

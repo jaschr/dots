@@ -2,15 +2,28 @@
 -- My XMonad Configuration
 --
 
+-- IMPORTS
 import XMonad 
-import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Spacing
-import XMonad.Util.SpawnOnce
 import Data.Monoid
 import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+
+-- Hooks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers ( doFullFloat, isFullscreen, doCenterFloat )
+import XMonad.Hooks.WindowSwallowing
+
+-- Layout
+import XMonad.Layout.Gaps
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Spacing
+
+-- Utilities
+import XMonad.Util.Paste
+import XMonad.Util.SpawnOnce
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -29,9 +42,6 @@ myClickJustFocuses = False
 --
 myBorderWidth   = 2
 
--- Spacing
-mySpacing       = 8
-
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
@@ -48,7 +58,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["I","II","III","IV","V"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -70,7 +80,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_b     ), spawn "firefox")
 
     -- launch emacs
-    , ((modm,               xK_e     ), spawn "emacs")
+    , ((modm,               xK_u     ), spawn "emacsclients -c -a emacs")
 
     -- toggle eww bar
     , ((modm .|. shiftMask, xK_b     ), spawn "ewwbartoggle")
@@ -139,7 +149,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[1..9], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_5]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
@@ -182,11 +192,10 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = spacing mySpacing
-  $avoidStruts(tiled ||| Mirror tiled ||| Full)
+myLayout = tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
+     tiled   = gaps [(U,35), (D,10), (L,10), (R,10)] $ spacing gap $ Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -196,6 +205,9 @@ myLayout = spacing mySpacing
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
+
+     -- Define the size of the gaps between windowsuuuuuuurr    
+     gap     = 10
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -213,10 +225,18 @@ myLayout = spacing mySpacing
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    [ className =? "confirm"         --> doFloat
+    , className =? "file_progress"   --> doFloat
+    , className =? "dialog"          --> doFloat
+    , className =? "download"        --> doFloat
+    , className =? "error"           --> doFloat
+    , className =? "Gimp"            --> doFloat
+    , className =? "notification"    --> doFloat
+    , className =? "toolbar"         --> doFloat
+    , className =? "Yad"             --> doCenterFloat
+    , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+    , isFullscreen --> doFullFloat
+    ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -227,7 +247,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = mempty
+myEventHook = swallowEventHook (className =? "Kitty") (return True)
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -246,18 +266,14 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    spawnOnce "picom &"
-    spawnOnce "emacs --daemon &"
-    spawn     "exec ~/.local/bin/eww-startup"
     spawnOnce "~/.fehbg &"
-    spawnOnce "dunst"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad $ docks defaults
+main = defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -265,7 +281,7 @@ main = xmonad $ docks defaults
 --
 -- No need to modify this.
 --
-defaults = def {
+defaults = xmonad $ ewmh $ def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -282,14 +298,12 @@ defaults = def {
 
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook,
+        manageHook         = myManageHook <+> manageDocks,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 
--- | Finally, a copy of the default bindings in simple textual tabular format.
-help :: String
 help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "",
     "-- launching and killing programs",
