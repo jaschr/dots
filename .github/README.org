@@ -22,6 +22,6 @@
 | GTK Theme         | Catppuccin Mocha Standard Maroon Dark |
 | Cursor Theme      | Catppuccin Mocha Dark Cursors         |
 
-** TODO: [/]
+** TODO: [0/2]
 - [ ] Fix bug with workspaces not properly switching.
 - [ ] Get Fn+[key] functions working.
