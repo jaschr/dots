@@ -10,7 +10,8 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
--- Hooks
+-- Hooks-
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers ( doFullFloat, isFullscreen, doCenterFloat )
@@ -28,7 +29,7 @@ import XMonad.Util.SpawnOnce
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "kitty"
+myTerminal      = "wezterm"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -81,9 +82,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch emacs
     , ((modm,               xK_u     ), spawn "emacsclients -c -a emacs")
-
-    -- toggle eww bar
-    , ((modm .|. shiftMask, xK_b     ), spawn "ewwbartoggle")
 
     -- close focused window
     , ((modm,               xK_q     ), kill)
@@ -247,7 +245,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
-myEventHook = swallowEventHook (className =? "Kitty") (return True)
+myEventHook = swallowEventHook (className =? "wezterm") (return True)
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -266,7 +264,7 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = do
-    spawnOnce "~/.fehbg &"
+    spawnOnce "~/.fehbg"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -281,7 +279,8 @@ main = defaults
 --
 -- No need to modify this.
 --
-defaults = xmonad $ ewmh $ def {
+defaults = do
+    xmonad $ ewmh $ def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,

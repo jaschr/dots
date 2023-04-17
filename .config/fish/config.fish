@@ -14,6 +14,8 @@ if status is-interactive
 	set -gx PATH $HOME/.config/emacs/bin $PATH
 	set -gx PATH $HOME/.emacs.d/bin $PATH
 	
+  # GHCUP
+  set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/jakeas/.ghcup/bin # ghcup-env
 
 	## ALIASES
 	
@@ -35,6 +37,9 @@ if status is-interactive
 
   # Helix hx -> helix
   alias hx='helix'
+
+  ## Starship
+  set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
+  starship init fish | source
 end
 
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /home/jakeas/.ghcup/bin # ghcup-env
