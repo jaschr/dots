@@ -9,9 +9,9 @@
 | Window System     | X11                                   |
 | Window Manager    | XMonad                                |
 | Audio             | pipewire                              |
-| Compositor        | picom-pijulius-git                    |
+| Compositor        | picom-ibhagwan-git                    |
 | Bar               | polybar                               |
-| Terminal Emulator | kitty                                 |
+| Terminal Emulator | wezterm                               |
 | Launcher          | Rofi                                  |
 | Browser           | Firefox                               |
 | Editor            | Doom Emacs                            |
@@ -21,3 +21,7 @@
 | Wallpaper         | feh                                   |
 | GTK Theme         | Catppuccin Mocha Standard Maroon Dark |
 | Cursor Theme      | Catppuccin Mocha Dark Cursors         |
+
+** TODO: [\]
+    [ ] Fix bug with workspaces not properly switching.
+    [ ] Get Fn+[key] functions working.
