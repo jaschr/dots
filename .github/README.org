@@ -23,5 +23,5 @@
 | Cursor Theme      | Catppuccin Mocha Dark Cursors         |
 
 ** TODO: [\]
-    [ ] Fix bug with workspaces not properly switching.
-    [ ] Get Fn+[key] functions working.
+    - [ ] Fix bug with workspaces not properly switching.
+    - [ ] Get Fn+[key] functions working.
