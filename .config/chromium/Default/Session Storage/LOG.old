@@ -1,2 +1,3 @@
-2023/04/07-00:25:48.299 5 Creating DB /home/jakeas/.config/chromium/Default/Session Storage since it was missing.
-2023/04/07-00:25:48.905 5 Reusing MANIFEST /home/jakeas/.config/chromium/Default/Session Storage/MANIFEST-000001
+2023/04/22-00:11:00.682 5 Reusing MANIFEST /home/jakeas/.config/chromium/Default/Session Storage/MANIFEST-000001
+2023/04/22-00:11:00.684 5 Recovering log #3
+2023/04/22-00:11:00.684 5 Reusing old log /home/jakeas/.config/chromium/Default/Session Storage/000003.log 

@@ -20,6 +20,7 @@ import XMonad.Hooks.WindowSwallowing
 -- Layout
 import XMonad.Layout.Gaps
 import XMonad.Layout.LayoutModifier
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 
 -- Utilities
@@ -190,7 +191,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Full
+myLayout = tiled ||| noBorders Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = gaps [(U,35), (D,10), (L,10), (R,10)] $ spacing gap $ Tall nmaster delta ratio
@@ -204,7 +205,7 @@ myLayout = tiled ||| Full
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
-     -- Define the size of the gaps between windowsuuuuuuurr    
+     -- Define the size of the gaps between windows
      gap     = 10
 
 ------------------------------------------------------------------------

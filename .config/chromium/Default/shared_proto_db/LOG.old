@@ -1,2 +1,3 @@
-2023/04/07-00:25:49.034 dd66 Creating DB /home/jakeas/.config/chromium/Default/shared_proto_db since it was missing.
-2023/04/07-00:25:49.633 dd66 Reusing MANIFEST /home/jakeas/.config/chromium/Default/shared_proto_db/MANIFEST-000001
+2023/04/22-00:11:01.058 740a Reusing MANIFEST /home/jakeas/.config/chromium/Default/shared_proto_db/MANIFEST-000001
+2023/04/22-00:11:01.058 740a Recovering log #3
+2023/04/22-00:11:01.058 740a Reusing old log /home/jakeas/.config/chromium/Default/shared_proto_db/000003.log 

@@ -9,19 +9,18 @@
 | Window System     | X11                                   |
 | Window Manager    | XMonad                                |
 | Audio             | pipewire                              |
-| Compositor        | picom-ibhagwan-git                    |
+| Compositor        | picom                                 |
 | Bar               | polybar                               |
 | Terminal Emulator | wezterm                               |
 | Launcher          | Rofi                                  |
 | Browser           | Firefox                               |
-| Editor            | Doom Emacs                            |
-| Editor            | Neovim                                |
+| Editor            | Emacs (Doom)                          |
+| Editor            | Neovim (NvChad)                       |
 | Editor            | Helix                                 |
 | File Manager      | Thunar                                |
 | Wallpaper         | feh                                   |
 | GTK Theme         | Catppuccin Mocha Standard Maroon Dark |
 | Cursor Theme      | Catppuccin Mocha Dark Cursors         |
 
-** TODO: [0/2]
-- [ ] Fix bug with workspaces not properly switching.
+** TODO: [0/1]
 - [ ] Get Fn+[key] functions working.

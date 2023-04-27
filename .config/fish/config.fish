@@ -1,4 +1,8 @@
 if status is-interactive
+  # Options
+  set -gx COLORTERM truecolor
+  set -gx EDITOR nvim
+
 	# Remove greeting
 	set fish_greeting
 
@@ -20,23 +24,26 @@ if status is-interactive
 	## ALIASES
 	
 	# Git
-	alias g='git'								# git
+	alias g='git'								                                            # g -> git
 
   # dotfiles
-  alias dotfiles='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+  alias dots='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'       # git for dotfiles
 
 	# LS -> EXA
-	alias ls="exa"								# ls
-	alias l='exa -lbF --git'						# list, size, type, git
-	alias ll='exa -lbGF --git'						# long list
-	alias llm='exa -lbGF --git --sort=modified' 				# long list, modified date sort
+	alias ls="exa"								                                          # ls
+	alias l='exa -lbF --git'						                                    # list, size, type, git
+	alias ll='exa -lbGF --git'						                                  # long list
+	alias llm='exa -lbGF --git --sort=modified' 				                    # long list, modified date sort
 	alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'  	# all list
 	alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' 	# all + extended list
-	alias lS='exa -1'							# one column, just names
-	alias lt='exa --tree --level=2' 					# tree
+	alias lS='exa -1'							                                          # one column, just names
+	alias lt='exa --tree --level=2' 					                              # tree
 
-  # Helix hx -> helix
-  alias hx='helix'
+  # Helix
+  alias hx='helix'                                                        # hx -> helix
+
+  # ...
+  alias ...=' cd ../..'                                                   # ... -> cd ../..
 
   ## Starship
   set -gx STARSHIP_CONFIG $HOME/.config/starship/starship.toml
