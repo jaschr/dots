@@ -1,4 +1,8 @@
 if status is-interactive
+  if not set -q TMUX
+    exec tmux
+  end
+
   # Options
   set -gx COLORTERM truecolor
   set -gx EDITOR nvim
