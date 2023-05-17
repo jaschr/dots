@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.color_scheme = 'Ayu Dark (Gogh)' -- Color Scheme Ayu Dark
+config.color_scheme = 'Kanagawa (Gogh)' -- Color Scheme Ayu Dark
 config.font = wezterm.font 'FiraCode Nerd Font' -- Fira Code Font
 config.font_size = 12.0 -- Set Font Size
 config.line_height = 1.2 -- Line Height

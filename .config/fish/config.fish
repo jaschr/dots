@@ -1,7 +1,4 @@
 if status is-interactive
-  if not set -q TMUX
-    exec tmux
-  end
 
   # Options
   set -gx COLORTERM truecolor
@@ -43,6 +40,13 @@ if status is-interactive
 	alias lS='exa -1'							                                          # one column, just names
 	alias lt='exa --tree --level=2' 					                              # tree
 
+  # Remove confirmation
+  alias rm='rm -i'                                                        # rm -> rm -i
+
+  # Nvim
+  alias v='nvim'                                                          # v -> nvim 
+  alias vim='nvim'                                                        # vim -> nvim
+
   # Helix
   alias hx='helix'                                                        # hx -> helix
 
@@ -54,3 +58,14 @@ if status is-interactive
   starship init fish | source
 end
 
+
+# pnpm
+set -gx PNPM_HOME "/home/jakeas/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
