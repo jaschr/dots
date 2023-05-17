@@ -15,7 +15,7 @@
 | Launcher          | Rofi                                  |
 | Browser           | Firefox                               |
 | Editor            | Emacs (Doom)                          |
-| Editor            | Neovim (NvChad)                       |
+| Editor            | Neovim                                |
 | Editor            | Helix                                 |
 | File Manager      | Thunar                                |
 | Wallpaper         | feh                                   |
