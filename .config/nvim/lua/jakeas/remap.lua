@@ -36,3 +36,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 
 vim.keymap.set("n", "<leader>bdo", [[:%bd<bar>e#<bar>bd#<CR><bar>'"]])
+
+
+-- Oil remap || Move to oil.lua once configuring
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })

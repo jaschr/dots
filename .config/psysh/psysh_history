@@ -1,0 +1,6 @@
+Chirp::all();
+Chirp::all();
+Chirps::all();
+Chirps::all();
+Chirp::all();
+exit

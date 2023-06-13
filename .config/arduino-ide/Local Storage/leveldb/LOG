@@ -1,0 +1,5 @@
+2023/05/21-02:25:33.502 b716 Creating DB /home/jakeas/.config/arduino-ide/Local Storage/leveldb since it was missing.
+2023/05/21-02:25:33.780 b716 Reusing MANIFEST /home/jakeas/.config/arduino-ide/Local Storage/leveldb/MANIFEST-000001
+2023/05/21-02:28:47.458 b716 Level-0 table #5: started
+2023/05/21-02:28:47.551 b716 Level-0 table #5: 61575 bytes OK
+2023/05/21-02:28:47.583 b716 Delete type=0 #3

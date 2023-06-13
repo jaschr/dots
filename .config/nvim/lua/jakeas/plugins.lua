@@ -114,4 +114,21 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    -- Oil
+    use {
+      'stevearc/oil.nvim',
+      config = function() require('oil').setup() end
+    }
+
+    -- phpactor
+    use {
+        'phpactor/phpactor',
+        ft = 'php',
+        run = 'composer install --no-dev --optimize-autoloader',
+        config = function()
+            vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
+            vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
+        end,
+    }
 end)
